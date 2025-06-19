@@ -56,7 +56,10 @@ function App() {
 
 
       {/* Chatbot fiksiran u donjem desnom uglu */}
-      <Chatbot />
+      <div className="chatbot-container">
+        <Chatbot />
+      </div>
+
     </div>
   );
 }

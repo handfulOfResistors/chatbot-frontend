@@ -86,3 +86,134 @@
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Kada je zatvoren */
+.chatbot-toggle-button {
+  background-color: #1E2A78;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+/* Glavni chat prozor */
+.chatbot-box {
+  width: 320px;
+  height: 440px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Zaglavlje */
+.chatbot-header {
+  background-color: #1E2A78;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Dugme za minimizaciju */
+.minimize-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Opis */
+.chatbot-description {
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  color: #444;
+  background-color: #f2f2f2;
+}
+
+/* Chat poruke */
+.chat-window {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message.user .message-role {
+  color: #1E2A78;
+  font-weight: bold;
+}
+
+.message.bot .message-role {
+  color: #3B4CCA;
+  font-weight: bold;
+}
+
+.message-content {
+  background-color: #f0f0f0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  max-width: 90%;
+}
+
+/* Unos i dugme */
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+.send-button {
+  background-color: #1E2A78;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Mobilni prikaz */
+@media (max-width: 600px) {
+  .chatbot-box {
+    width: 90vw;
+    height: 70vh;
+    right: 5vw;
+    bottom: 10px;
+  }
+
+  .chatbot-toggle-button {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}

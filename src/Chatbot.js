@@ -6,6 +6,7 @@ import './Chatbot.css'; // dodaj ovaj import za stilizaciju
 function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [isOpen, setIsOpen] = useState(true); // kontrola prikaza
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -29,27 +30,46 @@ function Chatbot() {
     if (e.key === 'Enter') sendMessage();
   };
 
+  
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+  };
+
+
   return (
-    <div className="chatbot-container">
-      <h2 className="chatbot-description">Ask anything about me</h2>
-      <div className="chat-window">
-        {messages.map((msg, i) => (
-          <div key={i} className={`message ${msg.role}`}>
-            <div className="message-role">{msg.role === 'user' ? 'You' : 'Bot'}</div>
-            <div className="message-content">{msg.content}</div>
+    <div className="chatbot-wrapper">
+      {isOpen ? (
+        <div className="chatbot-box">
+          <div className="chatbot-header">
+            <span>Welcome! Let’s chat 😊</span>
+            <button onClick={toggleChat} className="minimize-button">−</button>
           </div>
-        ))}
-      </div>
-      <div className="input-container">
-        <input
-          className="chat-input"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type your message..."
-        />
-        <button className="send-button" onClick={sendMessage}>Send</button>
-      </div>
+
+          <div className="chatbot-description">Hi, I’m Nemanja - ask me anything!</div>
+
+          <div className="chat-window">
+            {messages.map((msg, i) => (
+              <div key={i} className={`message ${msg.role}`}>
+                <div className="message-role">{msg.role === 'user' ? 'You' : 'Bot'}</div>
+                <div className="message-content">{msg.content}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="input-container">
+            <input
+              className="chat-input"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type your message..."
+            />
+            <button className="send-button" onClick={sendMessage}>Send</button>
+          </div>
+        </div>
+      ) : (
+        <button className="chatbot-toggle-button" onClick={toggleChat}>Chat</button>
+      )}
     </div>
   );
 }
