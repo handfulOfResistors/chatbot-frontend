@@ -6,7 +6,9 @@ import './Chatbot.css'; // dodaj ovaj import za stilizaciju
 function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [isOpen, setIsOpen] = useState(true); // kontrola prikaza
+  const [isOpen, setIsOpen] = useState(() => {
+  return window.innerWidth > 768; // Otvori samo ako nije mobilni (npr. širi od 768px)
+});
 
   const sendMessage = async () => {
     if (!input.trim()) return;
