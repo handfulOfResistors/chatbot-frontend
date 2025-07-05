@@ -52,7 +52,7 @@ function Chatbot() {
           <div className="chat-window">
             {messages.map((msg, i) => (
               <div key={i} className={`message ${msg.role}`}>
-                <div className="message-role">{msg.role === 'user' ? 'You' : 'Bot'}</div>
+                <div className="message-role">{msg.role === 'user' ? 'You' : msg.role}</div>
                 <div className="message-content">{msg.content}</div>
               </div>
             ))}
