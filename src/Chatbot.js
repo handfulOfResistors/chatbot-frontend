@@ -20,9 +20,9 @@ function Chatbot() {
         message: input
       });
 
-      setMessages(prev => [...prev, { role: 'bot', content: response.data.reply }]);
+      setMessages(prev => [...prev, { role: 'Nemanja', content: response.data.reply }]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'bot', content: 'There was an error connecting to the server.' }]);
+      setMessages(prev => [...prev, { role: 'Nemanja', content: 'There was an error connecting to the server.' }]);
     }
 
     setInput('');
